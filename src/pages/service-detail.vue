@@ -1,6 +1,7 @@
 <template>
+
 	<div class="content">
-		<p  class="zanwei"></p>
+		
 		<p class="navs">
 			<router-link tag="a" to="/service">技术</router-link>
 			<a class="nav-tag">></a>
@@ -88,6 +89,7 @@
 			</div>
 		</div>
 	</div>
+
 </template>
 
 <script>
@@ -96,9 +98,6 @@
 			return {
 				
 			}
-		},
-		mounted(){
-			
 		},
 		methods:{
 			

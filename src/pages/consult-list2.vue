@@ -1,88 +1,92 @@
 <template>
 	<div class="content">
-	
-		<div class="navs">
-			<a class="nav">专家</a>
-			<a class="nav">></a>
-			<a class="nav">详情</a>
+		<div class="first-page" v-if="firstPageShow">
+			<div class="navs">
+				<router-link tag="a" class="nav" to="/consult">专家</router-link>
+				<a class="nav">></a>
+				<a class="nav">合作机构列表</a>
+			</div>
+			<div class="main2 clearfix">
+				<div class="section fl" @click="readDetail()">
+					<div class="section-banner">
+						<img src="../../static/image/consult7.png" class="consult-img" />
+					</div>
+					<div class="section-text">上海科技大学</div>
+				</div>
+				<div class="section fl">
+					<div class="section-banner">
+						<img src="../../static/image/consult6.png" class="consult-img" />
+					</div>
+					<div class="section-text">上海科技大学</div>
+				</div>
+				<div class="section fl">
+					<div class="section-banner">
+						<img src="../../static/image/consult5.png" class="consult-img" />
+					</div>
+					<div class="section-text">上海科技大学</div>
+				</div>
+				<div class="section fl">
+					<div class="section-banner">
+						<img src="../../static/image/consult4.png" class="consult-img" />
+					</div>
+					<div class="section-text">上海科技大学</div>
+				</div>
+				
+				<div class="section fl">
+					<div class="section-banner">
+						<img src="../../static/image/consult3.png" class="consult-img" />
+					</div>
+					<div class="section-text">上海科技大学</div>
+				</div><div class="section fl">
+					<div class="section-banner">
+						<img src="../../static/image/consult7.png" class="consult-img" />
+					</div>
+					<div class="section-text">上海科技大学</div>
+				</div>
+				<div class="section fl">
+					<div class="section-banner">
+						<img src="../../static/image/consult6.png" class="consult-img" />
+					</div>
+					<div class="section-text">上海科技大学</div>
+				</div>
+				<div class="section fl">
+					<div class="section-banner">
+						<img src="../../static/image/consult4.png" class="consult-img" />
+					</div>
+					<div class="section-text">上海科技大学</div>
+				</div>
+				<div class="section fl">
+					<div class="section-banner">
+						<img src="../../static/image/consult3.png" class="consult-img" />
+					</div>
+					<div class="section-text">上海科技大学</div>
+				</div>
+				
+				<div class="section fl">
+					<div class="section-banner">
+						<img src="../../static/image/consult2.png" class="consult-img" />
+					</div>
+					<div class="section-text">上海科技大学</div>
+				</div>
+				<div class="section fl">
+					<div class="section-banner">
+						<img src="../../static/image/consult7.png" class="consult-img" />
+					</div>
+					<div class="section-text">上海科技大学</div>
+				</div>
+				<div class="section fl">
+					<div class="section-banner">
+						<img src="../../static/image/consult6.png" class="consult-img" />
+					</div>
+					<div class="section-text">上海科技大学</div>
+				</div>
+			</div>
+			<div class="pagination-content">
+				<page :total="total" :current-page='current' @pagechange="pagechange"></page>
+			</div>
 		</div>
-		<div class="main2 clearfix">
-			<div class="section fl" @click="readDetail()">
-				<div class="section-banner">
-					<img src="../../static/image/consult7.png" class="consult-img" />
-				</div>
-				<div class="section-text">上海科技大学</div>
-			</div>
-			<div class="section fl">
-				<div class="section-banner">
-					<img src="../../static/image/consult6.png" class="consult-img" />
-				</div>
-				<div class="section-text">上海科技大学</div>
-			</div>
-			<div class="section fl">
-				<div class="section-banner">
-					<img src="../../static/image/consult5.png" class="consult-img" />
-				</div>
-				<div class="section-text">上海科技大学</div>
-			</div>
-			<div class="section fl">
-				<div class="section-banner">
-					<img src="../../static/image/consult4.png" class="consult-img" />
-				</div>
-				<div class="section-text">上海科技大学</div>
-			</div>
-			
-			<div class="section fl">
-				<div class="section-banner">
-					<img src="../../static/image/consult3.png" class="consult-img" />
-				</div>
-				<div class="section-text">上海科技大学</div>
-			</div><div class="section fl">
-				<div class="section-banner">
-					<img src="../../static/image/consult7.png" class="consult-img" />
-				</div>
-				<div class="section-text">上海科技大学</div>
-			</div>
-			<div class="section fl">
-				<div class="section-banner">
-					<img src="../../static/image/consult6.png" class="consult-img" />
-				</div>
-				<div class="section-text">上海科技大学</div>
-			</div>
-			<div class="section fl">
-				<div class="section-banner">
-					<img src="../../static/image/consult4.png" class="consult-img" />
-				</div>
-				<div class="section-text">上海科技大学</div>
-			</div>
-			<div class="section fl">
-				<div class="section-banner">
-					<img src="../../static/image/consult3.png" class="consult-img" />
-				</div>
-				<div class="section-text">上海科技大学</div>
-			</div>
-			
-			<div class="section fl">
-				<div class="section-banner">
-					<img src="../../static/image/consult2.png" class="consult-img" />
-				</div>
-				<div class="section-text">上海科技大学</div>
-			</div>
-			<div class="section fl">
-				<div class="section-banner">
-					<img src="../../static/image/consult7.png" class="consult-img" />
-				</div>
-				<div class="section-text">上海科技大学</div>
-			</div>
-			<div class="section fl">
-				<div class="section-banner">
-					<img src="../../static/image/consult6.png" class="consult-img" />
-				</div>
-				<div class="section-text">上海科技大学</div>
-			</div>
-		</div>
-		<div class="pagination-content">
-			<page :total="total" :current-page='current' @pagechange="pagechange"></page>
+		<div class="second-page" v-else>
+			<router-view></router-view>
 		</div>
 	</div>
 </template>
@@ -95,6 +99,7 @@
 				total: 150,     // 记录总条数
 		        display: 10,   // 每页显示条数
 		        current: 1,   // 当前的页数
+		        firstPageShow:true
 			}
 		},
 		components:{
@@ -107,8 +112,28 @@
 		
 		  	},
 		  	readDetail:function(){
-		  		this.$router.push({path:'consult-list2-detail?navid='+2});
-		  	}
+		  		this.firstPageShow=false;
+		  		this.$router.push({path:'/consult/consult-list2/consult-list2-detail'});
+		  	},
+
+			watchHref:function(){
+				var href = window.location.href;
+				var match = /\b(detail)\b/
+		    	if(match.test(href)){
+					this.firstPageShow=false;
+				}else{
+					this.firstPageShow=true;
+				}
+
+			}
+		},
+		created(){
+			this.watchHref()
+		},
+		watch:{
+			$route(){
+		    	this.watchHref()
+		    }
 		}
 	}
 </script>

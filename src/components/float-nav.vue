@@ -8,7 +8,7 @@
 			<img class="float-icon" src="../../static/img/float-icon2.png" />
 			<p>发布需求</p>
 		</div>
-		<div class="float-nav">
+		<div class="float-nav"  id='goTop' @click='goTop()'>
 			<img class="float-icon" src="../../static/img/float-icon3.png" />
 			<p>返回顶部</p>
 		</div>
@@ -17,13 +17,38 @@
 
 <script>
 	export default{
+		data(){
+			return {
+				stop:false,
+				timer:null
+			}
+		},
 		methods:{
 			publishNeed:function(){
 				this.$router.push({path:'/publish1'})
 			},
 			publishTech:function(){
 				this.$router.push({path:'/publish2'})
-			}
+			},
+			goTop: function() { 
+				var time = this.timer;
+				var stop = this.stop;
+		        clearInterval(time);  
+		        time = setInterval(function() {
+		            let curHeight = document.documentElement.scrollTop || document.body.scrollTop; 
+		            var now = curHeight;  
+		           
+		            var speed = (0 - now) / 7;                 
+		            speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+		            if (curHeight === 0) {                        
+		              clearInterval(time);                             
+		            }  
+		            document.documentElement.scrollTop = curHeight + speed;
+		            document.body.scrollTop = curHeight + speed;  
+		            stop = false;
+
+		       }, 30);  
+		    }, 
 		}
 	}
 </script>

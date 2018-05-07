@@ -1,15 +1,10 @@
 <template>
 	<div class="swiper-container" id="swiper1">
 	    <div class="swiper-wrapper">
-		    <div class="swiper-slide" >
-		      <img src="../../static/img/banner1.jpeg">
+		    <div class="swiper-slide" v-for="(item,index) in listImg">
+		      <img :src="item">
 		    </div>
-		    <div class="swiper-slide" >
-		      <img src="../../static/img/banner2.png">
-		    </div>
-		    <div class="swiper-slide" >
-		      <img src="../../static/img/banner3.jpeg">
-		    </div>
+
 	    </div>
     	<div class="swiper-pagination"></div>
   	</div>
@@ -20,7 +15,7 @@
 
   
   export default {
-//  props: ['listImg'],
+    props: ['listImg'],
     mounted() {
       var swiper = new Swiper('.swiper-container', {
         pagination: '.swiper-pagination',

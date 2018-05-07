@@ -1,7 +1,18 @@
 <template>
 	<div>
-		
-			<div class="banner"></div>
+		<div class="first-page" v-if="firstPageShow">
+			<div class="banner">
+				<div class="banner-zanwei"></div>
+				<div class="banner-title">
+					<p>技术在手，说走就走</p>
+					<div class="left-circle"></div>
+					<div class="right-circle"></div>
+				</div>
+				<div class="banner-input clearfix">
+					<input class="banner-inp" type="text" placeholder="请输入你需要的技术" />
+					<button class="banner-btn">搜索</button>
+				</div>
+			</div>
 			<div class="content">
 				<div class="type">
 					<div class="types clearfix">
@@ -156,7 +167,10 @@
 					<page :total="total" :current-page='current' @pagechange="pagechange"></page>
 				</div>
 			</div>
-		
+		</div>
+		<div class="second-page" v-else>
+			<router-view></router-view>
+		</div>
 	</div>
 </template>
 <script>
@@ -175,7 +189,7 @@
 				active_index1:"0",
 				active_index2:"0",
 				active_index3:"0",
-			
+				firstPageShow:true,
 				navs_index:"0"
 			}
 			
@@ -202,8 +216,27 @@
 		
 		  	},
 			toDetail:function(){
-				this.$router.push({path:'service-detail?navid='+1});
+				this.firstPageShow=false;
+			    this.$router.push({path:'/service/service-detail'})
+			},
+			watchHref:function(){
+				var href = window.location.href;
+				var match = /\b(detail)\b/
+		    	if(match.test(href)){
+					this.firstPageShow=false;
+				}else{
+					this.firstPageShow=true;
+				}
+				console.log(this.firstPageShow)
 			}
+		},
+		created(){
+			this.watchHref()
+		},
+		watch:{
+			$route(){
+		    	this.watchHref();
+		    }
 		}
 	}
 </script>
@@ -225,7 +258,20 @@
 .section-title2{height: 24px;line-height: 24px;color: rgba(16, 16, 16, 1);font-size: 16px;text-align: left;font-family: Roboto;margin: 10px 0;}
 .section-desc{color: rgba(140, 140, 140, 1);font-size: 14px;text-align: left;font-family: Roboto;margin-bottom: 10px;height: 40px;line-height: 20px;overflow: hidden;text-overflow: ellipsis;}
 .section-footer-left{height: 24px;line-height: 24px;color: rgba(16, 16, 16, 1);font-size: 14px;font-family: Roboto;}
-.banner{width: 100%;height: 550px;background-image: url(../../static/img/banner2.png);background-repeat: no-repeat;background-position: center;background-size: cover;}
+.banner{width: 100%;height: 550px;background-image: url(../../static/img/banner1.jpeg);background-repeat: no-repeat;background-position: center;background-size: cover;}
 .section-text,.section-footer{width: 220px;padding: 0 10px;}
 .service-img{width: 240px;height: 180px;}
+
+.banner-title{border: 1px solid transparent;height: 70px;line-height: 70px;color: #FFFFFF;font-size: 32px;text-align: center;font-family: Roboto;position: relative;width: 300px;margin: 0 auto;}
+.banner-title:after,.banner-title:before{width: 200px;height: 2px;background-color: #FFFFFF;position: absolute;content: " ";top: 34px;}
+.banner-title:before{left:-260px;}
+.banner-title:after{right:-260px;}
+.left-circle,.right-circle{width: 20px;height: 20px;border-radius: 50%;background-color: #FFFFFF;position: absolute;top: 26px;}
+.left-circle{left: -60px;}
+.right-circle{right: -60px;}
+.banner-zanwei{width: 100%;height: 150px;}
+.banner-input{width: 100%;text-align: center;font-size: 0;margin-top: 94px;}
+.banner-inp{display: inline-block;border: none;width: 634px;height: 60px;line-height: 60px;background-color: #FFFFFF);color: rgba(66, 66, 66, 1);font-size: 20px;text-align: center;font-family: Roboto;}
+.banner-btn{display: inline-block;border: none;width: 105px;height: 60px;line-height: 60px;background-color: rgba(31, 147, 255, 1);color: rgba(255, 255, 255, 1);font-size: 20px;text-align: center;font-family: Roboto;}
+
 </style>

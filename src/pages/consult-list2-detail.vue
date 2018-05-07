@@ -2,7 +2,7 @@
 	<div class="content">
 		
 		<div class="navs">
-			<a class="nav" onclick="history.go(-1)">合作机构</a>
+			<router-link tag="a" class="nav" to="/consult/consult-list2">合作机构</router-link>
 			<a class="nav">></a>
 			<a class="nav">详情</a>
 		</div>

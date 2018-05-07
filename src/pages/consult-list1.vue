@@ -1,185 +1,211 @@
 <template>
+
 	<div class="content">
-		
-		<div class="navs">
-			<a class="nav" onclick="history.go(-1)">咨询</a>
-			<a class="nav">></a>
-			<a class="nav">专家列表</a>
+		<div class="first-page" v-if="firstPageShow">
+			<div class="navs">
+				<router-link class="nav" tag="a" to="/consult">咨询</router-link>
+				<a class="nav">></a>
+				<a class="nav">专家列表</a>
+			</div>
+			<div class="main2 clearfix">
+				<div class="main-left fl">
+					<div class="main-section clearfix">
+						<div class="main-section-left fl">
+							<img src="../../static/img/test.jpg" class="heads" />
+						</div>
+						<div class="main-section-right fr">
+							<div class="section-p clearfix">
+								<p class="section-p1 fl">
+									<a class="name">刘向阳</a>
+									<a class="level">教授</a>
+									<a class="split"> | </a>
+									<a class="school">厦门大学</a>
+								</p>
+								<p class="section-p2 fr">咨询专家</p>
+							</div>
+							<div class="skills clearfix">
+								<div class="skill inline-block">数据库专家</div>
+								<div class="skill inline-block">网络编程</div>
+							</div>
+							<p class="desc-text">简介</p>
+							<p class="desc-text2">概况刘向阳教授现为中组部“千人计划”专家，教育部长江学者讲座教授，博士生导师。 刘向阳教授毕业于山东大学化学系,获得理学学士学位；并于山</p>
+							<div class="desc3 clearfix">
+								<a class="desc-circle inline-block">专</a>
+								<a class="desc-text3 inline-block">专利：无人监控管理系统;</a>
+							</div>
+							<div class="desc3 clearfix">
+								<a class="desc-circle inline-block">论</a>
+								<a class="desc-text3 inline-block">论文：论数据库对系统不可代替的作用;</a>
+							</div>
+							<p class="read-more" @click="readMore()">更多 >></p>
+						</div>
+					</div>
+					<div class="main-section clearfix">
+						<div class="main-section-left fl">
+							<img src="../../static/img/test.jpg" class="heads" />
+						</div>
+						<div class="main-section-right fr">
+							<div class="section-p clearfix">
+								<p class="section-p1 fl">
+									<a class="name">刘向阳</a>
+									<a class="level">教授</a>
+									<a class="split"> | </a>
+									<a class="school">厦门大学</a>
+								</p>
+								<p class="section-p2 fr">咨询专家</p>
+							</div>
+							<div class="skills clearfix">
+								<div class="skill inline-block">数据库专家</div>
+								<div class="skill inline-block">网络编程</div>
+							</div>
+							<p class="desc-text">简介</p>
+							<p class="desc-text2">概况刘向阳教授现为中组部“千人计划”专家，教育部长江学者讲座教授，博士生导师。 刘向阳教授毕业于山东大学化学系,获得理学学士学位；并于山</p>
+							<div class="desc3 clearfix">
+								<a class="desc-circle inline-block">专</a>
+								<a class="desc-text3 inline-block">专利：无人监控管理系统;</a>
+							</div>
+							<div class="desc3 clearfix">
+								<a class="desc-circle inline-block">论</a>
+								<a class="desc-text3 inline-block">论文：论数据库对系统不可代替的作用;</a>
+							</div>
+							<p class="read-more">更多 >></p>
+						</div>
+					</div>
+					<div class="main-section clearfix">
+						<div class="main-section-left fl">
+							<img src="../../static/img/test.jpg" class="heads" />
+						</div>
+						<div class="main-section-right fr">
+							<div class="section-p clearfix">
+								<p class="section-p1 fl">
+									<a class="name">刘向阳</a>
+									<a class="level">教授</a>
+									<a class="split"> | </a>
+									<a class="school">厦门大学</a>
+								</p>
+								<p class="section-p2 fr">咨询专家</p>
+							</div>
+							<div class="skills clearfix">
+								<div class="skill inline-block">数据库专家</div>
+								<div class="skill inline-block">网络编程</div>
+							</div>
+							<p class="desc-text">简介</p>
+							<p class="desc-text2">概况刘向阳教授现为中组部“千人计划”专家，教育部长江学者讲座教授，博士生导师。 刘向阳教授毕业于山东大学化学系,获得理学学士学位；并于山</p>
+							<div class="desc3 clearfix">
+								<a class="desc-circle inline-block">专</a>
+								<a class="desc-text3 inline-block">专利：无人监控管理系统;</a>
+							</div>
+							<div class="desc3 clearfix">
+								<a class="desc-circle inline-block">论</a>
+								<a class="desc-text3 inline-block">论文：论数据库对系统不可代替的作用;</a>
+							</div>
+							<p class="read-more">更多 >></p>
+						</div>
+					</div>
+					<div class="pagination-content">
+						<page :total="total" :current-page='current' @pagechange="pagechange"></page>
+					</div>
+				</div>
+				<div class="main-right fr">
+					<p class="main-right-p1">专家推荐服务</p>
+					<p class="main-right-p2">10000+深度合作专家  提供专业咨询</p>
+					<input class="name-input box-sizing" type="text" placeholder="您的姓名" />
+					<div class="tels clearfix">
+						<select class="tel-select inline-block fl">
+							<option>+86</option>
+							<option>+87</option>
+							<option>+88</option>
+							<option>+89</option>
+						</select>
+						<input class="tel-input inline-block fr" placeholder="请输入您的手机号" type="text" />
+					</div>
+					<div class="yzm clearfix">
+						<input type="text" placeholder="请输入您的验证码" class="yzm-input inline-block box-sizing" />
+						<button class="yzm-btn box-sizing inline-block">发送验证码</button>
+					</div>
+					<textarea class="texts" placeholder="请提供您的需求，我们将为您推荐合适的专家，提供专业的咨询服务"></textarea>
+					<button class="contract">帮我联系</button>
+					<p class="main-right-p1">推荐机构</p>
+					
+					<div class="recommend">
+						<div class="recommend-img">
+							<img class="consult-img" src="../../static/image/consult4.png" />
+						</div>
+						<div class="recommend-text">北京大学</div>
+					</div>
+					<div class="recommend">
+						<div class="recommend-img">
+							<img class="consult-img" src="../../static/image/consult3.png" />
+						</div>
+						<div class="recommend-text">杭州电子科技大学</div>
+					</div>
+					<div class="recommend">
+						<div class="recommend-img">
+							<img class="consult-img" src="../../static/image/consult6.png" />
+						</div>
+						<div class="recommend-text">百度</div>
+					</div>
+					<div class="recommend">
+						<div class="recommend-img">
+							<img class="consult-img" src="../../static/image/consult5.png" />
+						</div>
+						<div class="recommend-text">宁波大学</div>
+					</div>
+					
+				</div>
+				
+			</div>
 		</div>
-		<div class="main2 clearfix">
-			<div class="main-left fl">
-				<div class="main-section clearfix">
-					<div class="main-section-left fl">
-						<img src="../../static/img/test.jpg" class="heads" />
-					</div>
-					<div class="main-section-right fr">
-						<div class="section-p clearfix">
-							<p class="section-p1 fl">
-								<a class="name">刘向阳</a>
-								<a class="level">教授</a>
-								<a class="split"> | </a>
-								<a class="school">厦门大学</a>
-							</p>
-							<p class="section-p2 fr">咨询专家</p>
-						</div>
-						<div class="skills clearfix">
-							<div class="skill inline-block">数据库专家</div>
-							<div class="skill inline-block">网络编程</div>
-						</div>
-						<p class="desc-text">简介</p>
-						<p class="desc-text2">概况刘向阳教授现为中组部“千人计划”专家，教育部长江学者讲座教授，博士生导师。 刘向阳教授毕业于山东大学化学系,获得理学学士学位；并于山</p>
-						<div class="desc3 clearfix">
-							<a class="desc-circle inline-block">专</a>
-							<a class="desc-text3 inline-block">专利：无人监控管理系统;</a>
-						</div>
-						<div class="desc3 clearfix">
-							<a class="desc-circle inline-block">论</a>
-							<a class="desc-text3 inline-block">论文：论数据库对系统不可代替的作用;</a>
-						</div>
-						<p class="read-more" @click="readMore()">更多 >></p>
-					</div>
-				</div>
-				<div class="main-section clearfix">
-					<div class="main-section-left fl">
-						<img src="../../static/img/test.jpg" class="heads" />
-					</div>
-					<div class="main-section-right fr">
-						<div class="section-p clearfix">
-							<p class="section-p1 fl">
-								<a class="name">刘向阳</a>
-								<a class="level">教授</a>
-								<a class="split"> | </a>
-								<a class="school">厦门大学</a>
-							</p>
-							<p class="section-p2 fr">咨询专家</p>
-						</div>
-						<div class="skills clearfix">
-							<div class="skill inline-block">数据库专家</div>
-							<div class="skill inline-block">网络编程</div>
-						</div>
-						<p class="desc-text">简介</p>
-						<p class="desc-text2">概况刘向阳教授现为中组部“千人计划”专家，教育部长江学者讲座教授，博士生导师。 刘向阳教授毕业于山东大学化学系,获得理学学士学位；并于山</p>
-						<div class="desc3 clearfix">
-							<a class="desc-circle inline-block">专</a>
-							<a class="desc-text3 inline-block">专利：无人监控管理系统;</a>
-						</div>
-						<div class="desc3 clearfix">
-							<a class="desc-circle inline-block">论</a>
-							<a class="desc-text3 inline-block">论文：论数据库对系统不可代替的作用;</a>
-						</div>
-						<p class="read-more">更多 >></p>
-					</div>
-				</div>
-				<div class="main-section clearfix">
-					<div class="main-section-left fl">
-						<img src="../../static/img/test.jpg" class="heads" />
-					</div>
-					<div class="main-section-right fr">
-						<div class="section-p clearfix">
-							<p class="section-p1 fl">
-								<a class="name">刘向阳</a>
-								<a class="level">教授</a>
-								<a class="split"> | </a>
-								<a class="school">厦门大学</a>
-							</p>
-							<p class="section-p2 fr">咨询专家</p>
-						</div>
-						<div class="skills clearfix">
-							<div class="skill inline-block">数据库专家</div>
-							<div class="skill inline-block">网络编程</div>
-						</div>
-						<p class="desc-text">简介</p>
-						<p class="desc-text2">概况刘向阳教授现为中组部“千人计划”专家，教育部长江学者讲座教授，博士生导师。 刘向阳教授毕业于山东大学化学系,获得理学学士学位；并于山</p>
-						<div class="desc3 clearfix">
-							<a class="desc-circle inline-block">专</a>
-							<a class="desc-text3 inline-block">专利：无人监控管理系统;</a>
-						</div>
-						<div class="desc3 clearfix">
-							<a class="desc-circle inline-block">论</a>
-							<a class="desc-text3 inline-block">论文：论数据库对系统不可代替的作用;</a>
-						</div>
-						<p class="read-more">更多 >></p>
-					</div>
-				</div>
-				<div class="pagination-content">
-					<page :total="total" :current-page='current' @pagechange="pagechange"></page>
-				</div>
-			</div>
-			<div class="main-right fr">
-				<p class="main-right-p1">专家推荐服务</p>
-				<p class="main-right-p2">10000+深度合作专家  提供专业咨询</p>
-				<input class="name-input box-sizing" type="text" placeholder="您的姓名" />
-				<div class="tels clearfix">
-					<select class="tel-select inline-block fl">
-						<option>+86</option>
-						<option>+87</option>
-						<option>+88</option>
-						<option>+89</option>
-					</select>
-					<input class="tel-input inline-block fr" placeholder="请输入您的手机号" type="text" />
-				</div>
-				<div class="yzm clearfix">
-					<input type="text" placeholder="请输入您的验证码" class="yzm-input inline-block box-sizing" />
-					<button class="yzm-btn box-sizing inline-block">发送验证码</button>
-				</div>
-				<textarea class="texts" placeholder="请提供您的需求，我们将为您推荐合适的专家，提供专业的咨询服务"></textarea>
-				<button class="contract">帮我联系</button>
-				<p class="main-right-p1">推荐机构</p>
-				
-				<div class="recommend">
-					<div class="recommend-img">
-						<img class="consult-img" src="../../static/image/consult4.png" />
-					</div>
-					<div class="recommend-text">北京大学</div>
-				</div>
-				<div class="recommend">
-					<div class="recommend-img">
-						<img class="consult-img" src="../../static/image/consult3.png" />
-					</div>
-					<div class="recommend-text">杭州电子科技大学</div>
-				</div>
-				<div class="recommend">
-					<div class="recommend-img">
-						<img class="consult-img" src="../../static/image/consult6.png" />
-					</div>
-					<div class="recommend-text">百度</div>
-				</div>
-				<div class="recommend">
-					<div class="recommend-img">
-						<img class="consult-img" src="../../static/image/consult5.png" />
-					</div>
-					<div class="recommend-text">宁波大学</div>
-				</div>
-				
-			</div>
-			
+		<div class="second-page" v-else>
+			<router-view></router-view>
 		</div>
 	</div>
+
 </template>
 
 <script>
 	import Page from '../components/page'
+	
 	export default{
 		data(){
 			return {
 				total: 150,     // 记录总条数
 		        display: 10,   // 每页显示条数
 		        current: 1,   // 当前的页数
+		        firstPageShow:true
 			}
 		},
 		methods:{
 			readMore:function(){
-
-				this.$router.push({path:'consult-list1-detail?navid='+2});
+				this.firstPageShow=false;
+			    this.$router.push({path:'/consult/consult-list1/consult-list1-detail'})
 			},
 			pagechange:function(currentPage){
 		       console.log(currentPage);
 		       // ajax请求, 向后台发送 currentPage, 来获取对应的数据
 		
 		  	},
+			watchHref:function(){
+				var href = window.location.href;
+				var match = /\b(detail)\b/;
+		    	if(match.test(href)){
+					this.firstPageShow=false;
+				}else{
+					this.firstPageShow=true;
+				}
+
+			}
 		},
 		components:{
 			Page
+		},
+		created(){
+			this.watchHref()
+		},
+		watch:{
+			$route(){
+		    	this.watchHref()
+		    }
 		}
 	}
 </script>

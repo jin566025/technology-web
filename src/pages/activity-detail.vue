@@ -1,4 +1,5 @@
 <template>
+
 	<div class="content">
 
 		<div class="detail">
@@ -168,6 +169,7 @@
 			</div>
 		</div>
 	</div>
+
 </template>
 
 <script>

@@ -10,9 +10,10 @@
 </template>
 
 <script>
-import MHeader from './components/m-header'
+
 import MFooter from './components/m-footer'
 import FloatNav from './components/float-nav'
+import MHeader from './components/m-header'
 export default {
 	data(){
 		return {

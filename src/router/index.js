@@ -23,6 +23,10 @@ import AccountLogin from '../pages/account-login'
 import Personal from '../pages/personal'
 import Publish1 from '../pages/publish1'
 import Publish2 from '../pages/publish2'
+import Policy from '../pages/policy'
+import PolicyDetail from '../pages/policy-detail'
+import Example from '../pages/example'
+import ExampleDetail from '../pages/example-detail'
 import PersonalNav1 from '../components/personal-nav1'
 import PersonalNav2 from '../components/personal-nav2'
 import PersonalNav3 from '../components/personal-nav3'
@@ -32,9 +36,7 @@ import PersonalNav6 from '../components/personal-nav6'
 import PersonalNav7 from '../components/personal-nav7'
 import PersonalNav8 from '../components/personal-nav8'
 import PersonalNav9 from '../components/personal-nav9'
-import IndexPart1 from '../components/index-part1'
-import IndexPart2 from '../components/index-part2'
-import IndexPart3 from '../components/index-part3'
+import Msg from '../pages/msg'
 
 
 
@@ -48,26 +50,41 @@ export default new Router({
     },
     {
     	path: '/index-content',
-      component: IndexContent,
-      redirect:'/index-content/index-part1',
-      children:[
-      	{
-      		path:'index-part1',
-      		component:IndexPart1
-      	},
-      	{
-      		path:'index-part2',
-      		component:IndexPart2
-      	},
-      	{
-      		path:'index-part3',
-      		component:IndexPart3
-      	}
-      ]
+      component: IndexContent
+    }, 
+    {
+    	path: '/msg',
+      component: Msg
     }, 
     {
     	path: '/service',
-      component: Service
+      component: Service,
+      children:[
+      	{
+		  		path:'service-detail',
+		  		component:ServiceDetail
+		  	}
+      ]
+    },
+    {
+    	path: '/policy',
+      component: Policy,
+      children:[
+      	{
+      		path:'policy-detail',
+      		component:PolicyDetail
+      	}
+      ]
+    },
+    {
+    	path: '/example',
+      component: Example,
+      children:[
+      	{
+      		path:'example-detail',
+      		component:ExampleDetail
+      	}
+      ]
     },
     {
     	path: '/publish1',
@@ -77,46 +94,46 @@ export default new Router({
     	path: '/publish2',
       component: Publish2
     },
-    {
-  		path:'/service-detail',
-  		component:ServiceDetail
-  	},
+    
     {
     	path:'/consult',
-    	component:Consult
+    	component:Consult,
+    	children:[
+    		{
+		    	path:'consult-list1',
+		    	component:ConsultList1,
+		    	children:[
+		    		{
+				    	path:'consult-list1-detail',
+				    	component:ConsultList1Detail
+				    },
+		    	]
+		    },
+		    {
+		    	path:'consult-list2',
+		    	component:ConsultList2,
+		    	children:[
+		    		{
+				    	path:'consult-list2-detail',
+				    	component:ConsultList2Detail
+				    },
+				  ]
+		    }
+    	]
     },
-    {
-    	path:'/consult-list1',
-    	component:ConsultList1
-    },
-    {
-    	path:'/consult-list1-detail',
-    	component:ConsultList1Detail
-    },
-    {
-    	path:'/consult-list2',
-    	component:ConsultList2
-    },
-    {
-    	path:'/consult-list2-detail',
-    	component:ConsultList2Detail
-    },
-    {
-    	path:'/consult-list3',
-    	component:ConsultList3
-    },
-    {
-    	path:'/consult-list3-detail',
-    	component:ConsultList3Detail
-    },
+    
+
     {
     	path:'/activity',
-    	component:Activity
+    	component:Activity,
+    	children:[
+	    	{
+		    	path:'activity-detail',
+		    	component:ActivityDetail
+		    }
+    	]
     },
-    {
-    	path:'/activity-detail',
-    	component:ActivityDetail
-    },
+    
     {
     	path:'/find-pass',
     	component:FindPass

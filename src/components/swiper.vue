@@ -1,68 +1,17 @@
 <template>
 	<div class="swiper-container" id="swiper2">
 	    <div class="swiper-wrapper">
-		    <div class="swiper-slide" >
+		    <div class="swiper-slide" v-for="(item,index) in paths.imgList">
 		        <div class="slide-content clearfix">
-			      	<div class="slide-section fl">
-			      		<img src="../../static/image/active4.jpeg" />
-			      		<p>新型只能家电</p>
-			      	</div>
-			      	<div class="slide-section fl">
-			      		<img src="../../static/image/active6.jpeg" />
-			      		<p>新型只能家电</p>
-			      	</div>
-			      	<div class="slide-section fl">
-			      		<img src="../../static/image/active7.jpeg" />
-			      		<p>新型只能家电</p>
-			      	</div>
-			      	<div class="slide-section fl">
-			      		<img src="../../static/image/active8.jpeg" />
+			      	<div class="slide-section fl" v-for="part in item">
+			      		<img  :src="part" />
 			      		<p>新型只能家电</p>
 			      	</div>
 		        </div>
 		    </div>
-		    <div class="swiper-slide" >
-		        <div class="slide-content clearfix">
-			      	<div class="slide-section fl">
-			      		<img src="../../static/image/active4.jpeg" />
-			      		<p>新型只能家电22</p>
-			      	</div>
-			      	<div class="slide-section fl">
-			      		<img src="../../static/image/active6.jpeg" />
-			      		<p>新型只能家电22</p>
-			      	</div>
-			      	<div class="slide-section fl">
-			      		<img src="../../static/image/active7.jpeg" />
-			      		<p>新型只能家电22</p>
-			      	</div>
-			      	<div class="slide-section fl">
-			      		<img src="../../static/image/active8.jpeg" />
-			      		<p>新型只能家电22</p>
-			      	</div>
-		        </div>
-		    </div>
-		    <div class="swiper-slide" >
-		        <div class="slide-content clearfix">
-			      	<div class="slide-section fl">
-			      		<img src="../../static/image/active4.jpeg" />
-			      		<p>新型只能家电33</p>
-			      	</div>
-			      	<div class="slide-section fl">
-			      		<img src="../../static/image/active6.jpeg" />
-			      		<p>新型只能家电333</p>
-			      	</div>
-			      	<div class="slide-section fl">
-			      		<img src="../../static/image/active7.jpeg" />
-			      		<p>新型只能家电333</p>
-			      	</div>
-			      	<div class="slide-section fl">
-			      		<img src="../../static/image/active8.jpeg" />
-			      		<p>新型只能家电333</p>
-			      	</div>
-		        </div>
-		    </div>
+		    
 	    </div>
-	    <p class="read-more">查看更多</p>
+	    <router-link class="read-more" :to="paths.path" tag="p">查看更多</router-link>
     	<img class="prev" src="../../static/img/prev.png" />
     	<img class="next" src="../../static/img/next.png" />
   	</div>
@@ -70,22 +19,22 @@
 
 <script>
   import Swiper from 'swiper';
-
   
   export default {
-//  props: ['listImg'],
+    props: ['paths'],
     mounted() {
       var swiper = new Swiper('#swiper2', {
-
         prevButton:'.prev',
 		nextButton:'.next',
-		loop : true,
+
         speed: 600,
         autoplay:3000,
         observer:true,//修改swiper自己或子元素时，自动初始化swiper
         observeParents:true,//修改swiper的父元素时，自动初始化swiper
-
       });
+    },
+    created(){
+    	console.log(this.paths.path)
     }
   }
 </script>
@@ -119,5 +68,5 @@
   .prev,.next{position: absolute;width:60px;height: 60px;top: 170px;z-index: 12;cursor: pointer;}
   .prev{left: 0px;}
   .next{right: 0px;}
-  .read-more{cursor: pointer;position: absolute;left:530px ;bottom: 20px;width: 140px;height: 40px;line-height: 40px;margin: 0 auto;background-color: rgba(255, 255, 255, 1);color: rgba(77, 180, 255, 1);font-size: 14px;text-align: center;font-family: Roboto;border: 1px solid rgba(255, 255, 255, 1);}
+  .read-more{z-index: 20;cursor: pointer;position: absolute;left:530px ;bottom: 20px;width: 140px;height: 40px;line-height: 40px;margin: 0 auto;background-color: rgba(255, 255, 255, 1);color: rgba(77, 180, 255, 1);font-size: 14px;text-align: center;font-family: Roboto;border: 1px solid rgba(255, 255, 255, 1);}
 </style>

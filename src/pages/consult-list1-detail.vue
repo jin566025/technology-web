@@ -1,8 +1,9 @@
 <template>
+
 	<div class="content">
 		
 		<div class="navs">
-			<a class="nav" onclick="history.go(-1)">专家</a>
+			<a class="nav" @click="toList()">专家</a>
 			<a class="nav">></a>
 			<a class="nav">详情</a>
 		</div>
@@ -88,9 +89,17 @@
 			</div>
 		</div>
 	</div>
+
 </template>
 
 <script>
+	export default{
+		methods:{
+			toList:function(){
+				this.$router.push({path:'/consult/consult-list1'})
+			}
+		}
+	}
 </script>
 
 <style scoped>

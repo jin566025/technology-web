@@ -1,109 +1,113 @@
 <template>
 	<div class="content">
+		<div class="first-page" v-if="firstPageShow">
+			
 		
-		<div class="banner">
-			<p class="banner-text1">行业热门活动</p>
-			<p class="banner-text2">汇聚全国各种技术</p>
+			<div class="banner">
+				
+			</div>
+			<div class="main">
+				<div class="types clearfix">
+					<div class="fl types2">活动类型：</div>
+					<div class="type-content clearfix fl">
+						<a class="type inline-block" @click="changeType(index)" v-for="(item,index) in typeList" :class="active_index==index ? 'type-active':''">{{ item }}</a>
+					</div>
+				</div>
+				<div class="section-content">
+					<div class="section clearfix" @click="readDetail()">
+						<div class="section-left fl">
+							<div class="section-left-content">
+								<img src="../../static/image/active1.jpeg" class="activity-img" />
+							</div>
+							<div class="section-left-bottom">
+								<p class="section-type">进行中</p>
+							</div>
+						</div>
+						<div class="section-right fr">
+							<p class="section-p1">【免费领票】新型技术分享交流会</p>
+							<p class="section-p2">活动时间：2018.03.30——2018.4.2</p>
+							<p class="section-p3">简介：</p>
+							<p class="section-p4">新型会新型技术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分享交流会新型技术分享交流会新型技术分享交流会</p>
+							<button class="btn">我要报名</button>
+						</div>
+					</div>
+					<div class="section clearfix">
+						<div class="section-left fl">
+							<div class="section-left-content">
+								<img src="../../static/image/active2.jpeg" class="activity-img" />
+							</div>
+							<div class="section-left-bottom">
+								<p class="section-type">进行中</p>
+							</div>
+						</div>
+						<div class="section-right fr">
+							<p class="section-p1">【免费领票】新型技术分享交流会</p>
+							<p class="section-p2">活动时间：2018.03.30——2018.4.2</p>
+							<p class="section-p3">简介：</p>
+							<p class="section-p4">新型会新型技术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分享交流会新型技术分享交流会新型技术分享交流会</p>
+							<button class="btn">我要报名</button>
+						</div>
+					</div>
+					<div class="section clearfix">
+						<div class="section-left fl">
+							<div class="section-left-content">
+								<img src="../../static/image/active3.jpeg" class="activity-img" />
+							</div>
+							<div class="section-left-bottom">
+								<p class="section-type">进行中</p>
+							</div>
+						</div>
+						<div class="section-right fr">
+							<p class="section-p1">【免费领票】新型技术分享交流会</p>
+							<p class="section-p2">活动时间：2018.03.30——2018.4.2</p>
+							<p class="section-p3">简介：</p>
+							<p class="section-p4">新型会新型技术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分享交流会新型技术分享交流会新型技术分享交流会</p>
+							<button class="btn">我要报名</button>
+						</div>
+					</div>
+					<div class="section clearfix">
+						<div class="section-left fl">
+							<div class="section-left-content">
+								<img src="../../static/image/active4.jpeg" class="activity-img" />
+							</div>
+							<div class="section-left-bottom">
+								<p class="section-type">进行中</p>
+							</div>
+						</div>
+						<div class="section-right fr">
+							<p class="section-p1">【免费领票】新型技术分享交流会</p>
+							<p class="section-p2">活动时间：2018.03.30——2018.4.2</p>
+							<p class="section-p3">简介：</p>
+							<p class="section-p4">新型会新型技术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分享交流会新型技术分享交流会新型技术分享交流会</p>
+							<button class="btn">我要报名</button>
+						</div>
+					</div>
+					<div class="section clearfix">
+						<div class="section-left fl">
+							<div class="section-left-content">
+								<img src="../../static/image/active5.jpeg" class="activity-img" />
+							</div>
+							<div class="section-left-bottom">
+								<p class="section-type">进行中</p>
+							</div>
+						</div>
+						<div class="section-right fr">
+							<p class="section-p1">【免费领票】新型技术分享交流会</p>
+							<p class="section-p2">活动时间：2018.03.30——2018.4.2</p>
+							<p class="section-p3">简介：</p>
+							<p class="section-p4">新型会新型技术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分享交流会新型技术分享交流会新型技术分享交流会</p>
+							<button class="btn">我要报名</button>
+						</div>
+					</div>
+				</div>
+				<div class="pagination-content">
+					<page :total="total" :current-page='current' @pagechange="pagechange"></page>
+				</div>
+			</div>
 		</div>
-		<div class="main">
-			<div class="types clearfix">
-				<div class="fl types2">活动类型：</div>
-				<div class="type-content clearfix fl">
-					<a class="type inline-block" @click="changeType(index)" v-for="(item,index) in typeList" :class="active_index==index ? 'type-active':''">{{ item }}</a>
-				</div>
-			</div>
-			<div class="section-content">
-				<div class="section clearfix" @click="readDetail()">
-					<div class="section-left fl">
-						<div class="section-left-content">
-							<img src="../../static/image/active1.jpeg" class="activity-img" />
-						</div>
-						<div class="section-left-bottom">
-							<p class="section-type">进行中</p>
-						</div>
-					</div>
-					<div class="section-right fr">
-						<p class="section-p1">【免费领票】新型技术分享交流会</p>
-						<p class="section-p2">活动时间：2018.03.30——2018.4.2</p>
-						<p class="section-p3">简介：</p>
-						<p class="section-p4">新型会新型技术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分享交流会新型技术分享交流会新型技术分享交流会</p>
-						<button class="btn">我要报名</button>
-					</div>
-				</div>
-				<div class="section clearfix">
-					<div class="section-left fl">
-						<div class="section-left-content">
-							<img src="../../static/image/active2.jpeg" class="activity-img" />
-						</div>
-						<div class="section-left-bottom">
-							<p class="section-type">进行中</p>
-						</div>
-					</div>
-					<div class="section-right fr">
-						<p class="section-p1">【免费领票】新型技术分享交流会</p>
-						<p class="section-p2">活动时间：2018.03.30——2018.4.2</p>
-						<p class="section-p3">简介：</p>
-						<p class="section-p4">新型会新型技术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分享交流会新型技术分享交流会新型技术分享交流会</p>
-						<button class="btn">我要报名</button>
-					</div>
-				</div>
-				<div class="section clearfix">
-					<div class="section-left fl">
-						<div class="section-left-content">
-							<img src="../../static/image/active3.jpeg" class="activity-img" />
-						</div>
-						<div class="section-left-bottom">
-							<p class="section-type">进行中</p>
-						</div>
-					</div>
-					<div class="section-right fr">
-						<p class="section-p1">【免费领票】新型技术分享交流会</p>
-						<p class="section-p2">活动时间：2018.03.30——2018.4.2</p>
-						<p class="section-p3">简介：</p>
-						<p class="section-p4">新型会新型技术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分享交流会新型技术分享交流会新型技术分享交流会</p>
-						<button class="btn">我要报名</button>
-					</div>
-				</div>
-				<div class="section clearfix">
-					<div class="section-left fl">
-						<div class="section-left-content">
-							<img src="../../static/image/active4.jpeg" class="activity-img" />
-						</div>
-						<div class="section-left-bottom">
-							<p class="section-type">进行中</p>
-						</div>
-					</div>
-					<div class="section-right fr">
-						<p class="section-p1">【免费领票】新型技术分享交流会</p>
-						<p class="section-p2">活动时间：2018.03.30——2018.4.2</p>
-						<p class="section-p3">简介：</p>
-						<p class="section-p4">新型会新型技术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分享交流会新型技术分享交流会新型技术分享交流会</p>
-						<button class="btn">我要报名</button>
-					</div>
-				</div>
-				<div class="section clearfix">
-					<div class="section-left fl">
-						<div class="section-left-content">
-							<img src="../../static/image/active5.jpeg" class="activity-img" />
-						</div>
-						<div class="section-left-bottom">
-							<p class="section-type">进行中</p>
-						</div>
-					</div>
-					<div class="section-right fr">
-						<p class="section-p1">【免费领票】新型技术分享交流会</p>
-						<p class="section-p2">活动时间：2018.03.30——2018.4.2</p>
-						<p class="section-p3">简介：</p>
-						<p class="section-p4">新型会新型技术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分术分享交流会新型技术分术分享交流会新型技术分术分享交流会新型技术分享交流会新型技术分享交流会新型技术分享交流会新型技术分享交流会</p>
-						<button class="btn">我要报名</button>
-					</div>
-				</div>
-			</div>
-			<div class="pagination-content">
-				<page :total="total" :current-page='current' @pagechange="pagechange"></page>
-			</div>
+		<div class="second-page" v-else>
+			<router-view></router-view>
 		</div>
-		
 	</div>
 	
 </template>
@@ -117,7 +121,8 @@
 		        display: 10,   // 每页显示条数
 		        current: 1,   // 当前的页数
 				typeList:["不限","论坛","讲座","分享"],
-				active_index:"0"
+				active_index:"0",
+				firstPageShow:true
 			}
 		},
 		components:{
@@ -127,14 +132,34 @@
 			changeType:function(index){
 				this.active_index = index
 			},
-			readDetail:function(){
-				this.$router.push({path:'activity-detail?navid='+3});
-			},
 			pagechange:function(currentPage){
 		       console.log(currentPage);
 		       // ajax请求, 向后台发送 currentPage, 来获取对应的数据
 		
 		  	},
+		  	readDetail:function(){
+				this.firstPageShow=false;
+			    this.$router.push({path:'/activity/activity-detail'})
+			},
+			watchHref:function(){
+				var href = window.location.href;
+				var match = /\b(detail)\b/
+		    	if(match.test(href)){
+					this.firstPageShow=false;
+				}else{
+					this.firstPageShow=true;
+				}
+				console.log(this.firstPageShow)
+			}
+		},
+		created(){
+			this.watchHref()
+		},
+		watch:{
+			$route(){
+		    	this.watchHref();
+		    	console.log(this.firstPageShow)
+		    }
 		}
 	}
 </script>
